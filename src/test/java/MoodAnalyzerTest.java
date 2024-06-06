@@ -11,10 +11,17 @@ public class MoodAnalyzerTest  {
         String result = moodAnalyzer.analyzeMood();
         Assertions.assertEquals(result, "HAPPY");
     }
+
     @Test
-    public void analyzeSadMood() {
-        MoodAnalyzer moodAnalyzer2 = new MoodAnalyzer("I am in sad  mood");
+    public void analyzeSadMood1() {
+        MoodAnalyzer moodAnalyzer2 = new MoodAnalyzer("I am  in Sad mood ");
         String result = moodAnalyzer2.analyzeMood();
         Assertions.assertEquals(result, "SAD");
+    }
+    @Test
+    public void analyzeNullMood2() {
+        MoodAnalyzer moodAnalyzer3 = new MoodAnalyzer(null);
+        String result = moodAnalyzer3.analyzeMood();
+        Assertions.assertEquals(result, "Invalid");
     }
 }
