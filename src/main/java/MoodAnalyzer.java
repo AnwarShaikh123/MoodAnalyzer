@@ -1,4 +1,7 @@
 public class MoodAnalyzer extends Throwable {
+    enum Mood{
+        HAPPY, SAD, NULL,EMPTY;
+    }
 
 
     private String msg;
@@ -8,12 +11,14 @@ public class MoodAnalyzer extends Throwable {
     }
 
     public String validate()throws MoodAnalyzer {
-        if (msg.contains("null")) {
-           return "Null";
+        if (msg==null) {
+           return String.valueOf(Mood.NULL);
         } else if (msg.toLowerCase().contains("sad")) {
-            return "SAD";
+            return String.valueOf(Mood.SAD);
         } else if (msg.toLowerCase().contains("happy")) {
-            return "HAPPY";
+            return String.valueOf(Mood.HAPPY);}
+            else if (msg=="") {
+                return String.valueOf(Mood.EMPTY);
         } else {
             throw new MoodAnalyzer("Invalid");
         }
